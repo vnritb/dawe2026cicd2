@@ -1,0 +1,281 @@
+/* ============================================================
+   Task Manager – DAWe RA6
+   Per modificar l'aspecte de l'aplicació, canvieu els valors
+   de les variables CSS d'aquí baix (secció :root).
+   ============================================================ */
+
+:root {
+  --color-primary:    #2563eb;   /* Color principal (botons, accents) */
+  --color-primary-hover: #1d4ed8;
+  --color-bg:         #f1f5f9;   /* Fons de la pàgina */
+  --color-surface:    #ffffff;   /* Fons de les targetes */
+  --color-header-bg:  #1e3a5f;   /* Fons de la capçalera */
+  --color-header-text:#ffffff;
+  --color-text:       #1e293b;
+  --color-text-muted: #64748b;
+  --color-border:     #e2e8f0;
+  --color-done-bg:    #f0fdf4;
+  --color-done-text:  #16a34a;
+  --color-tag-bg:     #dbeafe;
+  --color-tag-text:   #1d4ed8;
+  --color-tag-done-bg:#dcfce7;
+  --color-tag-done-text:#15803d;
+  --radius:           0.75rem;
+  --shadow:           0 2px 12px rgba(0,0,0,0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Capçalera ── */
+header {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+  padding: 1.25rem 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.header-inner {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo {
+  font-size: 1.75rem;
+}
+
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex: 1;
+}
+
+.badge {
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ── Contingut principal ── */
+main {
+  flex: 1;
+  max-width: 800px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ── Secció "Afegir tasca" ── */
+.add-task {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.add-task h2,
+.task-list-section h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--color-text);
+}
+
+.task-form {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.task-input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  transition: border-color 0.2s;
+}
+
+.task-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.task-input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-add {
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+}
+
+.btn-add:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hint {
+  margin-top: 0.75rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+/* ── Llista de tasques ── */
+.task-list-section {
+  background: var(--color-surface);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+}
+
+.task-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.task-tag-select {
+  padding: 0.6rem 0.75rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background: var(--color-bg);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.task-tag-select:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1.5px solid var(--color-border);
+  background: var(--color-bg);
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.task-item:hover {
+  border-color: var(--color-primary);
+}
+
+.task-item.done {
+  background: var(--color-done-bg);
+  border-color: var(--color-done-text);
+  opacity: 0.8;
+}
+
+.task-status {
+  font-size: 1.1rem;
+  width: 1.4rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+a.task-status {
+  text-decoration: none;
+}
+
+.pending-icon {
+  color: var(--color-text-muted);
+}
+
+.done-icon {
+  color: var(--color-done-text);
+  font-weight: 700;
+}
+
+.task-text {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.task-item.done .task-text {
+  text-decoration: line-through;
+  color: var(--color-text-muted);
+}
+
+.task-tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.done-tag {
+  background: var(--color-tag-done-bg);
+  color: var(--color-tag-done-text);
+}
+
+/* ── Peu de pàgina ── */
+footer {
+  text-align: center;
+  padding: 1.25rem 1rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+/* ── Responsive ── */
+@media (max-width: 600px) {
+  .task-form {
+    flex-direction: column;
+  }
+
+  .header-inner {
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    font-size: 0.72rem;
+  }
+}

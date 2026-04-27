@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ca">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Task Manager – DAWe</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <span class="logo">✅</span>
+      <h1>Task Manager</h1>
+      <span class="badge">DAWe · RA6</span>
+    </div>
+  </header>
+
+  <main>
+    <section class="add-task">
+      <h2>Nova tasca</h2>
+      <form class="task-form">
+        <input type="text" placeholder="Escriu una nova tasca..." class="task-input" autocomplete="off" />
+        <select class="task-tag-select">
+          <option value="Nova">Nova</option>
+          <option value="Part 1">Part 1</option>
+          <option value="Part 2">Part 2</option>
+          <option value="Part 3">Part 3</option>
+          <option value="Part 4">Part 4</option>
+        </select>
+        <button type="submit" class="btn-add">Afegir</button>
+      </form>
+      <p class="hint">Fes clic en qualsevol tasca per marcar-la com a solucionada (o per desmarcar-la).</p>
+    </section>
+
+    <section class="task-list-section">
+      <h2 id="heading-pending">Tasques pendents</h2>
+      <ul class="task-list" id="pending-list"></ul>
+    </section>
+
+    <section class="task-list-section">
+      <h2 id="heading-done">Tasques completades</h2>
+      <ul class="task-list" id="done-list"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Mòdul 0614 – Desplegament d'Aplicacions Web · Institut Tecnològic de Barcelona</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
